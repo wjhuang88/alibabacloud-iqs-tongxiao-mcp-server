@@ -1,0 +1,31 @@
+{
+  "name": "@tongxiao/common-search-mcp-server",
+  "version": "0.0.1",
+  "description": "TongXiao Web Search MCP Server",
+  "author": "TongXiao",
+  "type": "module",
+  "license": "ISC",
+  "bin": {
+    "mcp-server": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "start": "node build/index.js",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.0.1",
+    "@types/node-fetch": "^2.6.12",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "shx": "^0.3.4",
+    "typescript": "^5.6.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
