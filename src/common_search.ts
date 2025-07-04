@@ -75,7 +75,7 @@ URL：${pageItem.link || ''}
 站点名称：${pageItem.hostname || ''}
 发布时间：${publishDate}
 摘要：
-${pageItem.snippet || ''}
+${pageItem.summary || pageItem.snippet || ''}
         `.trim();
         pageResults.push(pageResult);
     }
