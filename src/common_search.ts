@@ -28,8 +28,8 @@ export const COMMON_SEARCH_TOOL = {
         type: "object",
         properties: {
             query: {
-                type: "query",
-                description: "搜索关键词（长度：>=2 and <=100）"
+                type: "string",
+                description: "搜索问题（长度：>=2 and <=100）"
             }
         },
         required: ["query"]
@@ -38,17 +38,18 @@ export const COMMON_SEARCH_TOOL = {
 
 export async function handleCommonSearch(TONGXIAO_API_KEY: string, params: any) {
     const { query } = params
-
-    const url = new URL("https://cloud-iqs.aliyuncs.com/search/genericSearch");
-    url.searchParams.append("query", query);
-    const headers = {
-        'Content-Type': 'application/json',
-        "X-API-Key": TONGXIAO_API_KEY
-    };
+    const url = new URL("https://cloud-iqs.aliyuncs.com/search/llm");
 
     const response = await fetch(url.toString(), {
-        method: 'GET',
-        headers: headers
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            "X-API-Key": TONGXIAO_API_KEY
+        },
+        body: JSON.stringify({
+            "query": query,
+            "numResults": 5
+        })
     });
 
     if (response.status != 200) {
@@ -72,12 +73,9 @@ export async function handleCommonSearch(TONGXIAO_API_KEY: string, params: any) 
 标题：${pageItem.title || ''}
 URL：${pageItem.link || ''}
 站点名称：${pageItem.hostname || ''}
-站点标签：${pageItem.siteLabel || ''}
 发布时间：${publishDate}
 摘要：
 ${pageItem.snippet || ''}
-正文：
-${pageItem.mainText || ''}
         `.trim();
         pageResults.push(pageResult);
     }

@@ -12,8 +12,14 @@ npm install -g @tongxiao/common-search-mcp-server
 
 ### Running with npx
 ```bash
+# run stdio server
 env TONGXIAO_API_KEY=your-api-key npx -y @tongxiao/common-search-mcp-server
 ```
+```bash
+# run sse server
+env TONGXIAO_API_KEY=your-api-key SERVER=sse npx -y @tongxiao/common-search-mcp-server
+```
+
 
 You can find your apikey from [ipaas.console.aliyun.com/api-key](https://ipaas.console.aliyun.com/api-key)
 
