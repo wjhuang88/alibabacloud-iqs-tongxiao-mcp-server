@@ -1,6 +1,6 @@
 {
   "name": "@tongxiao/common-search-mcp-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TongXiao Web Search MCP Server",
   "author": "TongXiao",
   "type": "module",
